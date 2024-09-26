@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fossil</title>
+    <link rel="icon" href="fossil.png" type="image/x-icon"> <!-- Favicon link -->
+    <style>
+        @font-face {
+            font-family: 'NunitoSans';
+            src: url('style1.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Oswald';
+            src: url('style2.ttf') format('truetype');
+        }
+        body {
+            margin: 0;
+            font-family: 'NunitoSans', sans-serif;
+            color: #ffffff;
+            overflow: hidden; /* Prevent scrollbar */
+            height: 100vh; /* Full height */
+            position: relative; /* For absolute positioning */
+        }
+
+        .background {
+            position: fixed; /* Fixed to stay in place */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            width: 150%; /* Scale to cover more area */
+            height: 150%; /* Scale to cover more area */
+            background-image: url('darkdirt.png'); /* Background image */
+            background-size: cover; /* Cover the entire screen */
+            background-position: center; /* Center the image */
+            z-index: -1; /* Behind all other content */
+            transform: translate(-50%, -50%); /* Offset to center */
+            transition: transform 0.1s; /* Smooth transition for the effect */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center elements vertically */
+            align-items: center; /* Center elements horizontally */
+            text-align: center; /* Center align text */
+            flex-grow: 1; /* Allow this to grow */
+            height: 100%; /* Ensure it takes full height */
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 15px rgba(145, 119, 92, 0.7);
+            margin: 15px 0 10px 0;
+            letter-spacing: 5px;
+            opacity: 0;
+            animation: fadeInZoom 1s forwards;
+            animation-delay: 0.5s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: lightgray;
+            opacity: 0;
+            animation: fadeInZoom 1s forwards;
+            animation-delay: 1s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            width: 200px;
+            padding: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #91775c;
+            color: #000000;
+            font-family: 'NunitoSans', sans-serif;
+            transition: background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInZoom 1s forwards;
+            animation-delay: 1.5s;
+            text-shadow: 
+                0 0 1px rgba(0, 0, 0, 0.8),
+                0 0 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #a58e74;
+        }
+
+        button:active {
+            background-color: #7d6b52;
+        }
+
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Background layer -->
+    <div class="container">
+        <h1>FOSSIL</h1>
+        <p>The remains or impression of a prehistoric organism preserved in petrified form in rock.</p>
+        <a href="https://drive.google.com/uc?export=download&id=1MrFg9eR6ME5vSx1zX-CM9GCm3G9CgAt6" target="_blank">
+            <button>CURRENT ROTATION</button>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const x = (e.clientX / window.innerWidth) * 2 - 5; // Reduce movement scale
+            const y = (e.clientY / window.innerHeight) * 2 - 5; // Reduce movement scale
+            const background = document.querySelector('.background');
+            background.style.transform = `translate(-50%, -50%) translate(${x}%, ${y}%)`; // Centered movement
+        });
+    </script>
+</body>
+</html>
